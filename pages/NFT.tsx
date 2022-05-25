@@ -23,15 +23,16 @@ const Home: NextPage = () => {
     useActiveListings(marketplace);
 
   return (
-    <div className={styles.wrapper}>
+    <>
      <Header3/>
      
-      <div className={styles.container}>
+     <div className={styles.container}>
         <h1 className={styles.h1}>NFT Marketplace </h1>
         <p className={styles.explain}>
         Découvrir les collections les plus haut de gamme, uniques et exclusives de NFT
            
         </p>
+
 
         <hr className={styles.divider} />
 
@@ -75,8 +76,9 @@ const Home: NextPage = () => {
             )
           }
         </div>
-      </div>
-    </div>
+        </div>
+      </>
+    
   );
 };
 

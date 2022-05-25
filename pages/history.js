@@ -1,5 +1,5 @@
 import React, { useContext, useEffect } from 'react'
-import Sidebar from '../components/Sidebar'
+
 import Header from '../components/Header'
 import { MariemContext } from '../context/MariemContext'
 
@@ -20,7 +20,7 @@ const history = () => {
 
   return (
     <div className={styles.container}>
-      <Sidebar />
+    
 
       <div className={styles.main}>
         <Header />

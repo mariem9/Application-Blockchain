@@ -6,7 +6,8 @@
 
 .wrapper{width:screen ; 
    height: screen; 
-   flex : flex-col;}
+   flex : flex-col;
+  color : white;}
 
 .btn {
   background-color: var(--tw-color1);
