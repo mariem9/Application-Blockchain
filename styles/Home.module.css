@@ -192,12 +192,22 @@
 
 .h1 {
   margin-bottom: 0px;
-  color: white ;
+   
+  
 }
-
+.h2 {
+  color: white ;
+font-size: 3rem ;
+position: center;
+}
+.head {
+  width: 100vw;
+  height: 100vh;
+  flex-direction: column;
+}
 .explain {
   font-size: 1.125rem;
-  color: white ;
+ 
 }
 
 .nameContainer {
@@ -216,9 +226,9 @@
 }
 
 .divider {
-  width: 50%;
+  width: 10%;
   border-color: grey;
-  opacity: 0.25;
+  opacity: 5;
 }
 
 .smallDivider {

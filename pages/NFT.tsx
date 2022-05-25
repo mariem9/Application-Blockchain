@@ -1,8 +1,7 @@
-
 import type { NextPage } from "next";
 import styles from "../styles/Home.module.css";
 import Link from "next/link";
-import Header3 from "../components/Header3"
+import Header from "../components/Header"
 import {
   MediaRenderer,
   useActiveListings,
@@ -10,8 +9,7 @@ import {
 } from "@thirdweb-dev/react";
 import { useRouter } from "next/router";
 
-
-const Home: NextPage = () => {
+const NFT: NextPage = () => {
   const router = useRouter();
 
 
@@ -23,21 +21,16 @@ const Home: NextPage = () => {
     useActiveListings(marketplace);
 
   return (
-    <>
-     <Header3/>
+     <div>
+     <Header/>
      
      <div className={styles.container}>
-        <h1 className={styles.h1}>NFT Marketplace </h1>
+        <div style={{ marginTop: 150, marginBottom: 50 }}>
+        <h1 className={styles.h2}>NFT Marketplace </h1>
         <p className={styles.explain}>
         Découvrir les collections les plus haut de gamme, uniques et exclusives de NFT
            
         </p>
-
-
-        <hr className={styles.divider} />
-
-        <div style={{ marginTop: 32, marginBottom: 32 }}>
-        
         </div>
 
         <div className="main">
@@ -76,10 +69,9 @@ const Home: NextPage = () => {
             )
           }
         </div>
-        </div>
-      </>
-    
+      </div>
+    </div>
   );
 };
 
-export default Home;
+export default NFT;
