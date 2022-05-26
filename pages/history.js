@@ -1,7 +1,7 @@
 import React, { useContext, useEffect } from 'react'
 
 import Header from '../components/Header'
-import { MariemContext } from '../context/MariemContext'
+import { RobinhoodContext } from '../context/RobinhoodContext'
 
 import Transaction from '../components/Transaction'
 
@@ -13,10 +13,10 @@ const history = () => {
     pageTitle: `text-2xl font-bold text-left mt-[50px] mb-[30px]`,
     transactions: `flex gap-[50px] flex-row flex-wrap`,
   }
-  const { ownedItems } = useContext(MariemContext)
-  // useEffect(() => {
-  //   console.log(ownedItems)
-  // }, [])
+  const { ownedItems } = useContext(RobinhoodContext)
+   useEffect(() => {
+     console.log(ownedItems)
+   }, [])
 
   return (
     <div className={styles.container}>

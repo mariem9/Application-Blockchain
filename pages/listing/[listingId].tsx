@@ -4,7 +4,7 @@ import {
     useNetwork,
     useNetworkMismatch,
   } from "@thirdweb-dev/react";
-  import Header3 from "../../components/Header3"
+  
   import {
     AuctionListing,
     ChainId,
@@ -32,7 +32,7 @@ import {
     >(undefined);
   
     const marketplace = useMarketplace(
-      "0xF1be533C3b02C11CF06a98fCdCB0968CA0765A88" 
+      "0x2a3014263683430Bd748D92EAd6A1ad0aec9Ed04" 
     );
   
     const networkMismatch = useNetworkMismatch();
@@ -106,8 +106,7 @@ import {
     }
   
     return (
-      <>
-      <Header3 />
+    
       <div className={styles.container} style={{}}>
         <div className={styles.listingContainer}>
           <div className={styles.leftListing}>
@@ -155,7 +154,7 @@ import {
             </div>
           </div>
         </div>
-      </>
+      
     );
   };
   

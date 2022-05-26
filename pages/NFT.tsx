@@ -1,7 +1,7 @@
 import type { NextPage } from "next";
 import styles from "../styles/Home.module.css";
 import Link from "next/link";
-import Header from "../components/Header"
+import Header3 from "../components/Header3"
 import {
   MediaRenderer,
   useActiveListings,
@@ -14,7 +14,7 @@ const NFT: NextPage = () => {
 
 
   const marketplace = useMarketplace(
-    "0xF1be533C3b02C11CF06a98fCdCB0968CA0765A88" 
+    "0x2a3014263683430Bd748D92EAd6A1ad0aec9Ed04" 
   );
 
   const { data: listings, isLoading: loadingListings } =
@@ -22,9 +22,9 @@ const NFT: NextPage = () => {
 
   return (
      <div>
-       <div>
-     <Header/>
-     </div>
+       
+     <Header3/>
+     
      <div className={styles.container}>
         <div style={{ marginTop: 150, marginBottom: 50 }}>
         <h1 className={styles.h2}>NFT Marketplace </h1>
