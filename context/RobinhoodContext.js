@@ -23,7 +23,7 @@ export const RobinhoodProvider = ({ children }) => {
   const [coinSelect, setCoinSelect] = useState('DOGE')
   const [toCoin, setToCoin] = useState('')
   const [balance, setBalance] = useState('')
-
+const [balances,setBalances]=useState('')
   const [amount, setAmount] = useState('')
 
   const { isAuthenticated, authenticate, user, logout, Moralis, enableWeb3,  isWeb3Enabled } =
@@ -41,26 +41,26 @@ export const RobinhoodProvider = ({ children }) => {
       })
       const balanceToEth = Moralis.Units.FromWei(currentBalance.balance)
       const formattedBalance = parseFloat(balanceToEth).toFixed(3)
-      setBalance(formattedBalance)
+      setBalances(formattedBalance)
     }
   }, [isAuthenticated, enableWeb3])
 
-  // useEffect(() => {
-  //   if (!currentAccount) return
-  //   ;(async () => {
-  //     const response = await fetch('/api/createUser', {
-  //       method: 'POST',
-  //       headers: {
-  //         'Content-Type': 'application/json',
-  //       },
-  //       body: JSON.stringify({
-  //         walletAddress: currentAccount,
-  //       }),
-  //     })
+  useEffect(() => {
+    if (!currentAccount) return
+     ;(async () => {
+       const response = await fetch('/api/createUser', {
+         method: 'POST',
+         headers: {
+           'Content-Type': 'application/json',
+         },
+         body: JSON.stringify({
+           walletAddress: currentAccount,
+         }),
+       })
 
-  //     const data = await response.json()
-  //   })()
-  // }, [currentAccount])
+       const data = await response.json()
+     })()
+   }, [currentAccount])
 
   const getContractAddress = () => {
     if (coinSelect === 'DAI') return daiAddress
@@ -164,20 +164,20 @@ export const RobinhoodProvider = ({ children }) => {
     saveTransaction(receipt.transactionHash, '0.01', receipt.to)
   }
 
-  // const saveTransaction = async (txHash, amount, toAddress) => {
-  //   await fetch('/api/swapTokens', {
-  //     method: 'POST',
-  //     headers: {
-  //       'Content-Type': 'application/json',
-  //     },
-  //     body: JSON.stringify({
-  //       txHash: txHash,
-  //       from: currentAccount,
-  //       to: toAddress,
-  //       amount: parseFloat(amount),
-  //     }),
-  //   })
-  // }
+   const saveTransaction = async (txHash, amount, toAddress) => {
+     await fetch('/api/swapTokens', {
+       method: 'POST',
+       headers: {
+         'Content-Type': 'application/json',
+       },
+       body: JSON.stringify({
+         txHash: txHash,
+         from: currentAccount,
+         to: toAddress,
+         amount: parseFloat(amount),
+       }),
+     })
+   }
 
   // const connectWallet = () => {
   //   authenticate()
@@ -239,7 +239,7 @@ export const RobinhoodProvider = ({ children }) => {
     await listenToUpdates()
 
     if (isAuthenticated) {
-      await getBalance()
+        await getBalance()
       const currentUsername = await user?.get('nickname')
       setUsername(currentUsername)
       const account = await user?.get('ethAddress')
@@ -311,27 +311,27 @@ export const RobinhoodProvider = ({ children }) => {
     }
   }
 
-  const getBalance = async () => {
-    try {
-      if (!isAuthenticated || !currentAccount) return
-      const options = {
-        contractAddress: amazonCoinAddress,
-        functionName: 'balanceOf',
-        abi: amazonAbi,
-        params: {
-          account: currentAccount,
-        },
-      }
+   const getBalance = async () => {
+     try {
+       if (!isAuthenticated || !currentAccount) return
+     const options = {
+         contractAddress: amazonCoinAddress,
+         functionName: 'balanceOf',
+         abi: amazonAbi,
+         params: {
+           account: currentAccount,
+         },
+       }
 
-      if (isWeb3Enabled) {
-        const response = await Moralis.executeFunction(options)
-        console.log(response.toString())
-        setBalance(response.toString())
-      }
-    } catch (error) {
-      console.log(error)
-    }
-  }
+       if (isWeb3Enabled) {
+         const response = await Moralis.executeFunction(options)
+         console.log(response.toString())
+         setBalance(response.toString())
+       }
+     } catch (error) {
+       console.log(error)
+     }
+   }
 
   const buyAsset = async (price, assets) => {
     try {
@@ -429,6 +429,7 @@ disconnectWallet,
         formattedAccount,
         setAmount,
         mint,
+        balances,
         setCoinSelect,
         coinSelect,
         balance,
@@ -436,10 +437,8 @@ disconnectWallet,
         amount,
         toCoin,
         setToCoin,
-
         buyTokens,
-        getBalance,
-        balance,
+       getBalance,
         setTokenAmount,
         tokenAmount,
         amountDue,

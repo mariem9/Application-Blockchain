@@ -27,7 +27,7 @@ const Header2 = () => {
     coins: `ml-[10px]`,
   }
 
-  const { balance, buyTokens, getBalance } = useContext(RobinhoodContext)
+  const { balance, buyTokens } = useContext(RobinhoodContext)
   const { openModal, isModalOpen, closeModal } = useModal()
   return (
     

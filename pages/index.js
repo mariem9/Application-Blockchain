@@ -43,14 +43,14 @@ const styles = {
 
 export default function Home({ coins }) {
    const [myCoins] = useState([...coins.slice(0, 15)])
-   const { balance, swapError } = useContext(RobinhoodContext)
+   const { balances, swapError } = useContext(RobinhoodContext)
   return (
     <div className={styles.wrapper}>
       <Header />
       <div className={styles.mainContainer}>
         <div className={styles.leftMain}>
           <div className={styles.portfolioAmountContainer}>
-            <div className={styles.portfolioAmount}>{balance} ETH</div>
+            <div className={styles.portfolioAmount}>{balances} ETH</div>
             <div className={styles.portfolioPercent}>
               +0.0008(+0.57%)
               <span className={styles.pastHour}>Past Hour</span>
@@ -63,7 +63,7 @@ export default function Home({ coins }) {
           </div>
           <div className={styles.buyingPowerContainer}>
             <div className={styles.buyingPowerTitle}>Buying Power</div>
-            <div className={styles.buyingPowerAmount}> {balance} ETH</div>
+            <div className={styles.buyingPowerAmount}> {balances} ETH</div>
           </div>
           <div className={styles.notice}>
             <div className={styles.noticeContainer}>
