@@ -4,6 +4,7 @@ import {
     useNetwork,
     useNetworkMismatch,
   } from "@thirdweb-dev/react";
+  import Header3 from "../../components/Header3"
   import {
     AuctionListing,
     ChainId,
@@ -105,6 +106,8 @@ import {
     }
   
     return (
+      <>
+      <Header3 />
       <div className={styles.container} style={{}}>
         <div className={styles.listingContainer}>
           <div className={styles.leftListing}>
@@ -152,7 +155,7 @@ import {
             </div>
           </div>
         </div>
-      
+      </>
     );
   };
   

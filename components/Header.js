@@ -27,7 +27,7 @@ const Header = () => {
     currentAccount,
     isAuthenticated,
     formattedAccount,
-    swapTokens,
+    
   } = useContext(RobinhoodContext)
 
   return (

@@ -45,22 +45,22 @@ const [balances,setBalances]=useState('')
     }
   }, [isAuthenticated, enableWeb3])
 
-  useEffect(() => {
-    if (!currentAccount) return
-     ;(async () => {
-       const response = await fetch('/api/createUser', {
-         method: 'POST',
-         headers: {
-           'Content-Type': 'application/json',
-         },
-         body: JSON.stringify({
-           walletAddress: currentAccount,
-         }),
-       })
+  // useEffect(() => {
+  //   if (!currentAccount) return
+  //    ;(async () => {
+  //      const response = await fetch('/api/createUser', {
+  //        method: 'POST',
+  //        headers: {
+  //          'Content-Type': 'application/json',
+  //        },
+  //        body: JSON.stringify({
+  //          walletAddress: currentAccount,
+  //        }),
+  //      })
 
-       const data = await response.json()
-     })()
-   }, [currentAccount])
+  //      const data = await response.json()
+  //    })()
+  //  }, [currentAccount])
 
   const getContractAddress = () => {
     if (coinSelect === 'DAI') return daiAddress
@@ -164,20 +164,20 @@ const [balances,setBalances]=useState('')
     saveTransaction(receipt.transactionHash, '0.01', receipt.to)
   }
 
-   const saveTransaction = async (txHash, amount, toAddress) => {
-     await fetch('/api/swapTokens', {
-       method: 'POST',
-       headers: {
-         'Content-Type': 'application/json',
-       },
-       body: JSON.stringify({
-         txHash: txHash,
-         from: currentAccount,
-         to: toAddress,
-         amount: parseFloat(amount),
-       }),
-     })
-   }
+  //  const saveTransaction = async (txHash, amount, toAddress) => {
+  //    await fetch('/api/swapTokens', {
+  //      method: 'POST',
+  //      headers: {
+  //        'Content-Type': 'application/json',
+  //      },
+  //      body: JSON.stringify({
+  //        txHash: txHash,
+  //        from: currentAccount,
+  //        to: toAddress,
+  //        amount: parseFloat(amount),
+  //      }),
+  //    })
+  //  }
 
   // const connectWallet = () => {
   //   authenticate()

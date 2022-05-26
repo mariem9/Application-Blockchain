@@ -22,8 +22,9 @@ const NFT: NextPage = () => {
 
   return (
      <div>
+       <div>
      <Header/>
-     
+     </div>
      <div className={styles.container}>
         <div style={{ marginTop: 150, marginBottom: 50 }}>
         <h1 className={styles.h2}>NFT Marketplace </h1>
