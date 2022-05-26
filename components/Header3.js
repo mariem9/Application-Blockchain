@@ -44,7 +44,7 @@ const Header3 = () => {
       <div className={styles.rightHeader}>
       <Link href="/">
         <div className={styles.menuItem} >
-          Porfolio
+      Porfolio
         </div></Link>
         <Link href="/Shop">
         <div className={styles.menuItem}  >Shop</div></Link>
@@ -53,7 +53,7 @@ const Header3 = () => {
         <div className={styles.menuItem}>Messages</div>
         {address ? (
           <>
-            <a
+        <a
               className={styles.secondaryButton}
               onClick={() =>disconnectWallet()}
             >
