@@ -24,10 +24,10 @@ const Main = () => {
         <h1 className={styles.recentTitle}>Recent Transaction</h1>
       )}
       {recentTransactions &&
-        recentTransactions.map((transaction, index) => {
+        recentTransactions.map((transaction, Shop) => {
           console.log(transaction)
           return (
-            <div key={index} className={styles.recentTransactionsList}>
+            <div key={Shop} className={styles.recentTransactionsList}>
               <div className={styles.transactionCard}>
                 <p>From: {transaction.attributes.from_address}</p>
                 <p>To: {transaction.attributes.to_address} </p>

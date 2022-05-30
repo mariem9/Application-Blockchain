@@ -12,7 +12,7 @@ import {
 import { useRouter } from "next/router";
 const style = {
   wraper :'flex flex-col items-center container-lg text-[#e5e8eb]',
-  wrapper: `bg-[#303339] flex-initial w-[12rem] h-[20rem] my-10 mx-20 rounded-2xl overflow-hidden cursor-pointer`,
+  wrapper: `bg-[#303339] flex-initial w-[12rem] h-[20rem] my-20 mx-10 rounded-2xl overflow-hidden cursor-pointer position-center`,
   imgContainer: `h-2/3 w-full overflow-hidden flex justify-center items-center`,
   nftImg: `w-full object-cover`,
   details: `p-3`,

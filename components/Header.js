@@ -7,7 +7,7 @@ import Link from 'next/link'
 
 
 const styles = {
-  container: 'flex w-screen h-16 bg-black px-24 py-3 mb-5 fixed',
+  container: 'flex w-screen h-16 bg-black px-24 py-3 mb-5 ',
   leftHeader: 'flex flex-1',
   logo: 'object-cover cursor-pointer',
   searchWrapper: 'flex flex-1',
