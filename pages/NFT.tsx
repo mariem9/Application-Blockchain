@@ -1,9 +1,8 @@
 import type { NextPage } from "next";
 import styles from "../styles/Home.module.css";
-import Link from "next/link";
+
 import Header3 from "../components/Header3"
-import { BiHeart } from 'react-icons/bi'
-import Router from 'next/router'
+
 
 import {
   MediaRenderer,
@@ -12,6 +11,7 @@ import {
 } from "@thirdweb-dev/react";
 import { useRouter } from "next/router";
 const style = {
+  wraper :'flex flex-col items-center container-lg text-[#e5e8eb]',
   wrapper: `bg-[#303339] flex-initial w-[12rem] h-[20rem] my-10 mx-20 rounded-2xl overflow-hidden cursor-pointer`,
   imgContainer: `h-2/3 w-full overflow-hidden flex justify-center items-center`,
   nftImg: `w-full object-cover`,
@@ -38,7 +38,7 @@ const NFT: NextPage = () => {
     useActiveListings(marketplace);
 
   return (
-    <div>
+    <div  className={style.wraper}>
        
     <Header3/>
     

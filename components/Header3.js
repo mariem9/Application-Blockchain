@@ -54,17 +54,17 @@ const Header3 = () => {
         {address ? (
           <>
         <a
-              className={styles.secondaryButton}
+               className={styles.menuItem}
               onClick={() =>disconnectWallet()}
             >
              Logout
             </a>
-            <p style={{ marginLeft: 8, marginRight: 8, color: "grey" }}>|</p>
-            <p>{address.slice(0, 6).concat("...").concat(address.slice(-4))}</p>
+            
+            <p className={styles.menuItem}>{address.slice(0, 6).concat("...").concat(address.slice(-4))}</p>
           </>
         ) : (
           <a
-            className={styles.mainButton}
+          className={styles.menuItem}
             onClick={() =>  connectWithMetamask()}
           >
             Login

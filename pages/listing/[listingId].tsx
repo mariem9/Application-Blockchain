@@ -21,7 +21,7 @@ import {
   import { RiShareBoxLine } from 'react-icons/ri'
   import { FiMoreVertical } from 'react-icons/fi'
   import { GiShare } from 'react-icons/gi'
-  import GeneralDetails from './../../components/GeneralDetails';
+
 import ItemActivity from './../../components/ItemActivity';
 
 const style = {
@@ -138,7 +138,8 @@ const ListingPage: NextPage = () => {
       <div className={style.wrapper}>
         
     <Header3 />
-    <div style={{ marginTop: 100, marginBottom: 50 }}></div>
+    <div style={{ marginTop: 90, marginBottom: 50 }}></div>
+    
          <div className={style.container}> 
           <div className={style.topContent}>
             <div className={style.nftImgContainer}>

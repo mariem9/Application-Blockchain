@@ -11,12 +11,12 @@ import { RobinhoodContext } from '../context/RobinhoodContext'
     topHeaderText: `text lg text-left flex items-center`,
     topHeaderEndText: `text lg flex items-center  flex-row p-[20px]`,
     content: `flex flex-col w-full h-[400px] gap-[20px] p-[20px] flex-1`,
-    date: `text-xl font-bold`,
+    date: `text-xl font-bold text-white`,
     item: `flex flex-row gap-[5px] w-full`,
     nameContainer: `flex flex-col justify-end`,
-    itemName: `text-mg font-bold flex ml-[5px]`,
+    itemName: `text-mg font-bold flex ml-[5px] text-white`,
     buyAgainBtn: `bg-[#ffd713] font-bold rounded-full p-[3px] h-[30px] w-[150px] cursor-pointer text-[#3a2802] text-center mb-[3px] mt-[5px]`,
-    etherscanBtn: `font-bold rounded-full h-[30px] w-[100px] cursor-pointer text-[#3a2802] text-center border-2 border-[#ffd713] flex justify-center items-center`,
+    etherscanBtn: `font-bold rounded-full h-[30px] w-[100px] cursor-pointer  text-center border-2 border-[#ffd713] flex justify-center items-center text-white`,
   }
 
   const Transaction = ({ item }) => {
