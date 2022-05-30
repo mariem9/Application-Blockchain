@@ -4,7 +4,7 @@ import {
     useNetwork,
     useNetworkMismatch,
   } from "@thirdweb-dev/react";
-  
+  import Header3 from "../../components/Header3";
   import {
     AuctionListing,
     ChainId,
@@ -15,9 +15,38 @@ import {
   import type { NextPage } from "next";
   import { useRouter } from "next/router";
   import { useEffect, useState } from "react";
-  import styles from "../../styles/Home.module.css";
-  
-  const ListingPage: NextPage = () => {
+  // import styles from "../../styles/Home.module.css";
+  import { AiFillHeart } from 'react-icons/ai'
+  import { MdRefresh } from 'react-icons/md'
+  import { RiShareBoxLine } from 'react-icons/ri'
+  import { FiMoreVertical } from 'react-icons/fi'
+  import { GiShare } from 'react-icons/gi'
+  import GeneralDetails from './../../components/GeneralDetails';
+import ItemActivity from './../../components/ItemActivity';
+
+const style = {
+  wrapper: `flex flex-col items-center container-lg text-[#e5e8eb]`,
+  container: `container p-6`,
+  topContent: `flex`,
+  nftImgContainer: `flex-1 mr-4`,
+  detailsContainer: `flex-[2] ml-4`,
+
+  infoContainer: `h-36 flex flex-col flex-1 justify-between mb-6`,
+  accent: `text-[#2081e2]`,
+  nftTitle: `text-3xl font-extrabold`,
+  otherInfo: `flex`,
+  ownedBy: `text-[#8a939b] mr-4`,
+  likes: `flex items-center text-[#8a939b]`,
+  likeIcon: `mr-1`,
+  actionButtonsContainer: `w-44`,
+  actionButtons: `flex container justify-between text-[1.4rem] border-2 rounded-lg`,
+  actionButton: `my-2`,
+  divider: `border-r-2`,
+  button: `mr-8 flex items-center py-2 px-12 rounded-lg cursor-pointer`,
+  buttonIcon: `text-xl`,
+  buttonText: `ml-2 text-lg font-semibold`,
+}
+const ListingPage: NextPage = () => {
     
     const router = useRouter();
   
@@ -51,11 +80,11 @@ import {
     }, [listingId, marketplace]);
   
     if (loadingListing) {
-      return <div className={styles.loadingOrError}>Loading...</div>;
+      return <div >Loading...</div>;
     }
   
     if (!listing) {
-      return <div className={styles.loadingOrError}>Listing not found</div>;
+      return <div >Listing not found</div>;
     }
   
     async function createBidOrOffer() {
@@ -106,8 +135,97 @@ import {
     }
   
     return (
+      <div className={style.wrapper}>
+        
+    <Header3 />
+    <div style={{ marginTop: 100, marginBottom: 50 }}></div>
+         <div className={style.container}> 
+          <div className={style.topContent}>
+            <div className={style.nftImgContainer}>
+            <MediaRenderer
+              src={listing.asset.image}
+            
+            />
+            </div>
+            <div className={style.detailsContainer}>
+            <div className={style.wrapper}>
+      <div className={style.infoContainer}>
+        <div className={style.accent}>Bored Ape Yacht Club</div>
+        <div className={style.nftTitle}>{listing.asset.name}</div>
+        <div className={style.otherInfo}>
+          <div className={style.ownedBy}>
+            Owned by <span className={style.accent}>{listing.sellerAddress?.slice(0, 6) +
+                  "..." +
+                  listing.sellerAddress?.slice(36, 40)}</span>
+          </div>
+          <div className={style.likes}>
+            <AiFillHeart className={style.likeIcon} /> 2.3K favorites
+          </div>
+        </div>
+      </div>
+      <div className={style.actionButtonsContainer}>
+        <div className={style.actionButtons}>
+          <div className={`${style.actionButton} ml-2`}>
+            <MdRefresh />
+          </div>
+          <div className={style.divider} />
+          <div className={style.actionButton}>
+            <RiShareBoxLine />
+          </div>
+          <div className={style.divider} />
+          <div className={style.actionButton}>
+            <GiShare />
+          </div>
+          <div className={style.divider} />
+          <div className={`${style.actionButton} mr-2`}>
+            <FiMoreVertical />
+          </div>
+        </div>
+        <div
+              className={`${style.button} bg-[#2081e2] hover:bg-[#42a0ff]`}
+            >
+              <button
+               className={style.buttonIcon}
+                
+                onClick={buyNft}
+              >
+                Buy
+              </button>
+              
+               
+                
+              </div>
+      </div>
+    </div>
+            </div>
+          </div>
+          <ItemActivity />
+        </div>
+      
     
-      <div className={styles.container} style={{}}>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      {/* <div className={styles.container} style={{}}>
         <div className={styles.listingContainer}>
           <div className={styles.leftListing}>
             <MediaRenderer
@@ -153,8 +271,8 @@ import {
               </div>
             </div>
           </div>
-        </div>
-      
+        </div> */}
+      </div>
     );
   };
   
