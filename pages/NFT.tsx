@@ -61,7 +61,7 @@ const NFT: NextPage = () => {
                  <div
                  className={style.wrapper}
                    key={listing.id}
-                  //  className={styles.listingShortView}
+                 
                    onClick={() => router.push(`/listing/${listing.id}`)}
                  >
 
@@ -90,26 +90,6 @@ const NFT: NextPage = () => {
             </div>
         
         </div></div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 </div>
                 ))}

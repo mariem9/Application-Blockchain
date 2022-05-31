@@ -1,7 +1,6 @@
 import React, { useContext } from 'react'
 import { CgMenuGridO } from 'react-icons/cg'
-// import logo from '../assets/amazon_logo_full.png'
-// import Image from 'next/image'
+
 
 import { RobinhoodContext } from '../context/RobinhoodContext'
 import { FaCoins } from 'react-icons/fa'
@@ -33,22 +32,6 @@ const Header2 = () => {
     
     <ModalProvider>
       <div className={styles.container}>
-         {/* <div className={styles.logo}>
-          <Image
-            src={logo}
-            alt='amazon'
-            height={100}
-            width={150}
-            className='object-cover'
-          /> 
-        </div> */}
-        {/* <div className={styles.search}>
-          <input
-            type='text'
-            placeholder='Search Your Assets...'
-            className={styles.searchInput}
-          /> */}
-          {/* <IoMdSearch fontSize={20} /> */}
         
         <div className={styles.menu}>
           <div className={styles.menuItem}>New Releases</div>

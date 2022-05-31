@@ -33,7 +33,6 @@ const Header = () => {
   return (
     <div className={styles.container}>
       <div className={styles.leftHeader}>
-        {/* <Image src={logo} height={100} width={100} className={styles.logo} /> */}
       </div>
       <div className={styles.searchWrapper}>
         <div className={styles.searchInputContainer}>

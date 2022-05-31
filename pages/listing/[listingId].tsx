@@ -15,7 +15,6 @@ import {
   import type { NextPage } from "next";
   import { useRouter } from "next/router";
   import { useEffect, useState } from "react";
-  // import styles from "../../styles/Home.module.css";
   import { AiFillHeart } from 'react-icons/ai'
   import { MdRefresh } from 'react-icons/md'
   import { RiShareBoxLine } from 'react-icons/ri'
@@ -203,76 +202,6 @@ const ListingPage: NextPage = () => {
           <ItemActivity />
         </div>
       
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-      {/* <div className={styles.container} style={{}}>
-        <div className={styles.listingContainer}>
-          <div className={styles.leftListing}>
-            <MediaRenderer
-              src={listing.asset.image}
-              className={styles.mainNftImage}
-            />
-          </div>
-  
-          <div className={styles.rightListing}>
-            <h1>{listing.asset.name}</h1>
-            <p>
-              Owned by{" "}
-              <b>
-                {listing.sellerAddress?.slice(0, 6) +
-                  "..." +
-                  listing.sellerAddress?.slice(36, 40)}
-              </b>
-            </p>
-  
-            <h2>
-              <b>{listing.buyoutCurrencyValuePerToken.displayValue}</b>{" "}
-              {listing.buyoutCurrencyValuePerToken.symbol}
-            </h2>
-  
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "row",
-                gap: 20,
-                alignItems: "center",
-              }}
-            >
-              <button
-                style={{ borderStyle: "none" }}
-                className={styles.mainButton}
-                onClick={buyNft}
-              >
-                Buy
-              </button>
-              
-               
-                
-              </div>
-            </div>
-          </div>
-        </div> */}
       </div>
     );
   };
