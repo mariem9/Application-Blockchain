@@ -31,7 +31,7 @@ const NFT: NextPage = () => {
 
 
   const marketplace = useMarketplace(
-    "0x2a3014263683430Bd748D92EAd6A1ad0aec9Ed04" 
+    "0xF684CDd7AEA8B98B488CaDDb72e1B9c881EC08c4" 
   );
 
   const { data: listings, isLoading: loadingListings } =

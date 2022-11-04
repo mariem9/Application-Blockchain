@@ -36,7 +36,7 @@ const [balances,setBalances]=useState('')
       setFormattedAccount(formatAccount)
       setCurrentAccount(account)
       const currentBalance = await Moralis.Web3API.account.getNativeBalance({
-        chain: 'rinkeby',
+        chain: 'Goerli',
         address: currentAccount,
       })
       const balanceToEth = Moralis.Units.FromWei(currentBalance.balance)
@@ -45,22 +45,22 @@ const [balances,setBalances]=useState('')
     }
   }, [isAuthenticated, enableWeb3])
 
-  // useEffect(() => {
-  //    if (!currentAccount) return
-  //     ;(async () => {
-  //       const response = await fetch('/api/createUser', {
-  //         method: 'POST',
-  //         headers: {
-  //           'Content-Type': 'application/json',
-  //         },
-  //         body: JSON.stringify({
-  //           walletAddress: currentAccount,
-  //         }),
-  //       })
+   useEffect(() => {
+      if (!currentAccount) return
+       ;(async () => {
+         const response = await fetch('/api/createUser', {
+           method: 'POST',
+           headers: {
+             'Content-Type': 'application/json',
+           },
+           body: JSON.stringify({
+           walletAddress: currentAccount,
+           }),
+         })
 
-  //       const data = await response.json()
-  //     })()
-  //   }, [currentAccount])
+         const data = await response.json()
+       })()
+     }, [currentAccount])
 
   const getContractAddress = () => {
     if (coinSelect === 'DAI') return daiAddress
@@ -105,10 +105,10 @@ const [balances,setBalances]=useState('')
         const transaction = await Moralis.executeFunction(options)
         const receipt = await transaction.wait(4)
         console.log(receipt)
-        // saveTransaction(receipt.transactionHash, amount, receipt.to)
+         saveTransaction(receipt.transactionHash, amount, receipt.to)
       } else {
         swapTokens()
-        // saveTransaction(receipt.transactionHash, amount, receipt.to)
+        saveTransaction(receipt.transactionHash, amount, receipt.to)
       }
     } catch (error) {
       console.error(error.message)
@@ -161,23 +161,23 @@ const [balances,setBalances]=useState('')
     const transaction = await Moralis.transfer(options)
     const receipt = await transaction.wait()
     console.log(receipt)
-    // saveTransaction(receipt.transactionHash, '0.01', receipt.to)
+     saveTransaction(receipt.transactionHash, '0.01', receipt.to)
   }
 
-    // const saveTransaction = async (txHash, amount, toAddress) => {
-    //   await fetch('/api/swapTokens', {
-    //     method: 'POST',
-    //     headers: {
-    //       'Content-Type': 'application/json',
-    //     },
-    //     body: JSON.stringify({
-    //       txHash: txHash,
-    //       from: currentAccount,
-    //       to: toAddress,
-    //       amount: parseFloat(amount),
-    //     }),
-    //   })
-    // }
+      const saveTransaction = async (txHash, amount, toAddress) => {
+        await fetch('/api/swapTokens', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            txHash: txHash,
+            from: currentAccount,
+            to: toAddress,
+            amount: parseFloat(amount),
+          }),
+       })
+      }
 
   // const connectWallet = () => {
   //   authenticate()
@@ -293,7 +293,7 @@ const [balances,setBalances]=useState('')
     setIsLoading(false)
     console.log(receipt)
     setEtherscanLink(
-      `https://rinkeby.etherscan.io/tx/${receipt.transactionHash}`,
+      `https://goerli.etherscan.io/tx/${receipt.transactionHash}`,
     )
   }
 
@@ -351,14 +351,12 @@ const [balances,setBalances]=useState('')
       const receipt = await transaction.wait()
 
       if (receipt) {
-        //You can do this but it's not necessary with Moralis hooks!
-        // const query = new Moralis.Query('_User')
-        // const results = await query.find()
+        
 
         const res = userData[0].add('ownedAsset', {
           ...assets,
           purchaseDate: Date.now(),
-          etherscanLink: `https://rinkeby.etherscan.io/tx/${receipt.transactionHash}`,
+          etherscanLink: `https://goerli.etherscan.io/tx/${receipt.transactionHash}`,
         })
 
         await res.save().then(() => {

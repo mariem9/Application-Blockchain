@@ -43,7 +43,7 @@ const Header3 = () => {
       <div className={styles.rightHeader}>
       <Link href="/">
         <div className={styles.menuItem} >
-      Porfolio
+      Portfolio
         </div></Link>
         <Link href="/Shop">
         <div className={styles.menuItem}  >Shop</div></Link>

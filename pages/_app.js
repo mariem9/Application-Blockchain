@@ -6,11 +6,11 @@ import { ThirdwebProvider, ChainId } from "@thirdweb-dev/react";
 
 function MyApp({ Component, pageProps }) {
   return (
-    <ThirdwebProvider desiredChainId={ChainId.Rinkeby}>
+    <ThirdwebProvider desiredChainId={ChainId.Goerli}>
     <MoralisProvider
       // This should be in a .env file
-      serverUrl='https://c0smvt5l81wn.usemoralis.com:2053/server'
-      appId='HUEpcBuWsZlMXyOrQ2kSZTqCFGp5UqNE3fjbLlOX'
+      serverUrl='https://w4ztxxc4ouc8.grandmoralis.com:2053/server'
+      appId='bAbCPw73cSQ0ebHGs2Sjcgh7mFRhHDTPEYyDlcvy'
     >
       <RobinhoodProvider>
       <ModalProvider>

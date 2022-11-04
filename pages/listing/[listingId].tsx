@@ -60,7 +60,7 @@ const ListingPage: NextPage = () => {
     >(undefined);
   
     const marketplace = useMarketplace(
-      "0x2a3014263683430Bd748D92EAd6A1ad0aec9Ed04" 
+      "0xF684CDd7AEA8B98B488CaDDb72e1B9c881EC08c4" 
     );
   
     const networkMismatch = useNetworkMismatch();
@@ -97,7 +97,7 @@ const ListingPage: NextPage = () => {
           await marketplace?.direct.makeOffer(
             listingId, 
             1, 
-            NATIVE_TOKENS[ChainId.Rinkeby].wrapped.address, 
+            NATIVE_TOKENS[ChainId.Goerli].wrapped.address, 
             bidAmount 
           );
         }

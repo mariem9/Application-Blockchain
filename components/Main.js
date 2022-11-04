@@ -36,7 +36,7 @@ const Main = () => {
                   <a
                     target={'_blank'}
                     rel='noopener noreferrer'
-                    href={`https://rinkeby.etherscan.io/tx/${transaction.attributes.hash}`}
+                    href={`https://goerli.etherscan.io/tx/${transaction.attributes.hash}`}
                   >
                     {transaction.attributes.hash.slice(0, 10)}
                   </a>
